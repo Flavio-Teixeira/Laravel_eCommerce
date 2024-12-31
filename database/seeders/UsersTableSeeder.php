@@ -17,8 +17,13 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Admnistrator',
                 'email' => 'admin@admin.com',
                 'email_verified_at' => now(),
-                'password' => 'dfhdskfjhsdkjfhskjfhsk'
+                'password' => 'dfhdskfjhsdkjfhskjfhsk',
+                'remember_token' => 'okokokokokoko'
             ]
         );
+
+        factory(\App\Models\User::class, 40)->create()->each(function($user){
+            $user->store()->save(factory(\App\Models\Store::class)->make());
+        });
     }
 }

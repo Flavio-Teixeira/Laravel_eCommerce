@@ -8,7 +8,16 @@ Route::get('/', function () {
 });
 
 Route::get('/model', function(){
-    $products = \App\Product::all();
+    //$products = \App\Product::all();
 
-    return $products;
+    $user = new \App\Models\User();
+    $user->name = 'Usuário Teste';
+    $user->email = 'email@teste.com';
+    $user->password = bcrypt('12345678');
+
+    //return $user->save();
+    return \App\Models\User::all();
+
+
+    //return $products;
 });
