@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -12,7 +13,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run(): void
     {
-        \DB::table('users')->insert(
+        /*\DB::table('users')->insert(
             [
                 'name' => 'Admnistrator',
                 'email' => 'admin@admin.com',
@@ -20,10 +21,14 @@ class UsersTableSeeder extends Seeder
                 'password' => 'dfhdskfjhsdkjfhskjfhsk',
                 'remember_token' => 'okokokokokoko'
             ]
-        );
+        );*/
 
-        factory(\App\Models\User::class, 40)->create()->each(function($user){
-            $user->store()->save(factory(\App\Models\Store::class)->make());
+        /*\App\Models\User::factory()->count(40)->create()->each(function($user){
+            $user->store()->save(\App\Models\Store::factory()->make());
         });
+        */
+        User::factory(3)->create();
+
+
     }
 }
